@@ -7,6 +7,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/spf13/cobra v0.0.6
 	github.com/stretchr/testify v1.5.1
+	golang.org/x/sys v0.4.0 // indirect
 	helm.sh/helm/v3 v3.1.1
 	k8s.io/apimachinery v0.17.3 // indirect
 	sigs.k8s.io/yaml v1.1.0
