@@ -36,13 +36,8 @@ func NewClient(opts ...Option) (Client, error) {
 	c.Option(opts...)
 	c.Timeout = c.opts.timeout
 
-	//Enable tls config if configured
-	tr, err := newTransport(
-		c.opts.certFile,
-		c.opts.keyFile,
-		c.opts.caFile,
-		c.opts.insecureSkipVerify,
-	)
+	// Enable tls config if configured
+	tr, err := newTransport(c.opts.certFile, c.opts.keyFile, c.opts.caFile, c.opts.insecureSkipVerify)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +47,7 @@ func NewClient(opts ...Option) (Client, error) {
 	return &c, nil
 }
 
-//Create transport with TLS config
+// Create transport with TLS config
 func newTransport(certFile, keyFile, caFile string, insecureSkipVerify bool) (*http.Transport, error) {
 	transport := &http.Transport{}
 
